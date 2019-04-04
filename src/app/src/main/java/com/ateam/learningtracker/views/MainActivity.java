@@ -1,13 +1,21 @@
-package com.ateam.learningtracker;
+package com.ateam.learningtracker.views;
 
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
+import android.util.Log;
 import android.view.View;
 import android.view.Menu;
 import android.view.MenuItem;
+
+import com.ateam.learningtracker.R;
+import com.ateam.learningtracker.data.LearningSessionEntity;
+import com.ateam.learningtracker.data.SubjectEntity;
+import com.ateam.learningtracker.data.SubsectionEntity;
+
+import java.security.Timestamp;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -26,6 +34,24 @@ public class MainActivity extends AppCompatActivity {
                         .setAction("Action", null).show();
             }
         });
+
+
+        // DB access example
+
+        SubjectEntity subject = new SubjectEntity("Maths", 30);
+        subject.save();
+
+        SubsectionEntity subsection = new SubsectionEntity("logarithms", 0.7f, subject);
+        subsection.save();
+
+        long timestamp = System.currentTimeMillis() / 1000;
+        LearningSessionEntity session = new LearningSessionEntity(timestamp - 3600, timestamp, "nope,", subsection);
+        session.save();
+
+
+        LearningSessionEntity s = LearningSessionEntity.findById(LearningSessionEntity.class, 1L);
+        Log.v("bla", s.note);
+        // DB access example end
     }
 
     @Override
