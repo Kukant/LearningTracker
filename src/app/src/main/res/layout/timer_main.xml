@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:gravity="center"
+    android:orientation="vertical"
+    tools:context=".views.TimerActivity">
+
+    <Chronometer
+        android:id="@+id/chronometer"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@color/grey"
+        android:paddingLeft="25dp"
+        android:paddingTop="10dp"
+        android:paddingRight="25dp"
+        android:paddingBottom="10dp"
+        android:textSize="30sp"/>
+
+    <Space
+        android:layout_width="match_parent"
+        android:layout_height="50dp" />
+
+    <Button
+        android:id="@+id/startBtn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:onClick="startChronomter"
+        android:paddingLeft="50dp"
+        android:paddingRight="50dp"
+        android:text="@string/start" />
+
+    <Space
+        android:layout_width="match_parent"
+        android:layout_height="50dp" />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:onClick="pauseChronomter"
+        android:paddingLeft="50dp"
+        android:paddingRight="50dp"
+        android:text="@string/pause" />
+
+    <Space
+        android:layout_width="match_parent"
+        android:layout_height="50dp" />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:onClick="resetChronomter"
+        android:paddingLeft="50dp"
+        android:paddingRight="50dp"
+        android:text="@string/reset" />
+
+    <Space
+        android:layout_width="match_parent"
+        android:layout_height="50dp" />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:onClick="logActivity"
+        android:paddingLeft="50dp"
+        android:paddingRight="50dp"
+        android:text="@string/finish"/>
+
+</LinearLayout>

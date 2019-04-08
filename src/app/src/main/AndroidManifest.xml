@@ -20,6 +20,7 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity android:name=".views.TimerActivity" />
 
         <meta-data android:name="DATABASE" android:value="learning_tracker.db" />
         <meta-data android:name="VERSION" android:value="3" />
