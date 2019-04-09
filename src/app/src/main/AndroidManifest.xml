@@ -23,6 +23,7 @@
         <activity android:name=".views.TimerActivity"
             android:screenOrientation="portrait"
         />
+        <activity android:name=".views.ProgressOverviewActivity" />
 
         <meta-data android:name="DATABASE" android:value="learning_tracker.db" />
         <meta-data android:name="VERSION" android:value="3" />

@@ -5,4 +5,48 @@
     <string name="pause">Pause</string>
     <string name="reset">Reset</string>
     <string name="finish">Log Activity</string>
+
+    <string-array name="Subjects">
+        <item>Accounting</item>
+        <item>Agricultural Science</item>
+        <item>Art</item>
+        <item>Biology</item>
+        <item>Business</item>
+        <item>Chemistry</item>
+        <item>Economics</item>
+        <item>English</item>
+        <item>French</item>
+        <item>Geography</item>
+        <item>German</item>
+        <item>History</item>
+        <item>Home Economics</item>
+        <item>Irish</item>
+        <item>Maths</item>
+        <item>Music</item>
+        <item>Physics</item>
+        <item>Religious Studies</item>
+        <item>Spanish</item>
+    </string-array>
+
+    <string-array name="Percentage">
+        <item>0%</item>
+        <item>0%</item>
+        <item>0%</item>
+        <item>0%</item>
+        <item>0%</item>
+        <item>0%</item>
+        <item>0%</item>
+        <item>0%</item>
+        <item>0%</item>
+        <item>0%</item>
+        <item>0%</item>
+        <item>0%</item>
+        <item>0%</item>
+        <item>0%</item>
+        <item>0%</item>
+        <item>0%</item>
+        <item>0%</item>
+        <item>0%</item>
+        <item>0%</item>
+    </string-array>
 </resources>
