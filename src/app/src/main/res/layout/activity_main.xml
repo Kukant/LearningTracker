@@ -1,33 +1,69 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.design.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".views.MainActivity">
+    android:gravity="top"
+    android:orientation="vertical"
+    tools:context=".views.TimerActivity">
 
-    <android.support.design.widget.AppBarLayout
+
+    <ImageView
+        android:id="@+id/imageView"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:theme="@style/AppTheme.AppBarOverlay">
+        android:layout_gravity="top"
+        android:layout_marginTop="100dp"
+        android:src="@drawable/logo" />
 
-        <android.support.v7.widget.Toolbar
-            android:id="@+id/toolbar"
-            android:layout_width="match_parent"
-            android:layout_height="?attr/actionBarSize"
-            android:background="?attr/colorPrimary"
-            app:popupTheme="@style/AppTheme.PopupOverlay" />
-
-    </android.support.design.widget.AppBarLayout>
-
-    <include layout="@layout/content_main" />
-
-    <android.support.design.widget.FloatingActionButton
-        android:id="@+id/fab"
-        android:layout_width="wrap_content"
+    <Button
+        android:id="@+id/BtnProgressOverview"
+        android:layout_width="300dp"
         android:layout_height="wrap_content"
-        android:layout_gravity="bottom|end"
-        android:layout_margin="@dimen/fab_margin"
-        app:srcCompat="@android:drawable/ic_dialog_email" />
+        android:layout_marginTop="10dp"
+        android:layout_gravity="center"
+        android:text="Progress Overview"
+        android:background="@drawable/button_style"
+        android:textSize="20sp" />
 
-</android.support.design.widget.CoordinatorLayout>
+    <Button
+        android:id="@+id/BtnTimer"
+        android:layout_width="300dp"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginTop="10dp"
+        android:text="Timer"
+        android:background="@drawable/button_style"
+        android:textSize="20sp" />
+
+    <Button
+        android:id="@+id/BtnNewSession"
+        android:layout_width="300dp"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginTop="10dp"
+        android:background="@drawable/button_style"
+        android:text="Log learning activity"
+        android:textSize="20sp" />
+
+    <Button
+        android:id="@+id/BtnAddSubject"
+        android:layout_width="300dp"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginTop="10dp"
+        android:text="Add Subject"
+        android:background="@drawable/button_style"
+        android:textSize="20sp" />
+
+    <Button
+        android:id="@+id/BtnEditSubject"
+        android:layout_width="300dp"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginTop="10dp"
+        android:text="Edit Subject"
+        android:background="@drawable/button_style"
+        android:textSize="20sp" />
+</LinearLayout>
