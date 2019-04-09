@@ -49,7 +49,6 @@ public class TimerActivity extends AppCompatActivity {
             chronometer.stop();
             pauseOffset = SystemClock.elapsedRealtime() - chronometer.getBase();
             running = false;
-            //Change the start button text to resume
         }
     }
 
@@ -59,6 +58,7 @@ public class TimerActivity extends AppCompatActivity {
     }
 
     public void logActivity(View v) {
+        //Prints seconds variable which can be used in another activity when it is created
         Toast.makeText(TimerActivity.this, "Seconds " + seconds,
                 Toast.LENGTH_LONG).show();
     }

@@ -11,12 +11,13 @@
         android:id="@+id/chronometer"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:background="@color/grey"
+        android:fontFamily="monospace"
         android:paddingLeft="25dp"
         android:paddingTop="10dp"
+        android:textStyle="bold"
         android:paddingRight="25dp"
         android:paddingBottom="10dp"
-        android:textSize="30sp"/>
+        android:textSize="60sp"/>
 
     <Space
         android:layout_width="match_parent"
@@ -26,6 +27,7 @@
         android:id="@+id/startBtn"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:background="@drawable/button_style"
         android:onClick="startChronomter"
         android:paddingLeft="50dp"
         android:paddingRight="50dp"
@@ -38,6 +40,7 @@
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:background="@drawable/button_style"
         android:onClick="pauseChronomter"
         android:paddingLeft="50dp"
         android:paddingRight="50dp"
@@ -50,6 +53,7 @@
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:background="@drawable/button_style"
         android:onClick="resetChronomter"
         android:paddingLeft="50dp"
         android:paddingRight="50dp"
@@ -62,6 +66,7 @@
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:background="@drawable/button_style"
         android:onClick="logActivity"
         android:paddingLeft="50dp"
         android:paddingRight="50dp"
