@@ -8,6 +8,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.ListView;
+import android.widget.ProgressBar;
 import android.widget.TextView;
 
 import com.ateam.learningtracker.R;
@@ -19,7 +20,7 @@ public class ProgressOverviewActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.progressoverview_main);
 
         setupUIViews();
         setupListView();
@@ -27,6 +28,7 @@ public class ProgressOverviewActivity extends AppCompatActivity {
 
     private void setupUIViews() {
         listView = (ListView) findViewById(R.id.lvMain);
+        assert listView != null;
     }
 
     private void setupListView() {
@@ -78,8 +80,11 @@ public class ProgressOverviewActivity extends AppCompatActivity {
             subject = (TextView)convertView.findViewById(R.id.tvMain);
             percentage = (TextView)convertView.findViewById(R.id.tvPercentage);
 
+            ProgressBar pb = convertView.findViewById(R.id.progressBar);
+            pb.setProgress(Integer.valueOf(percentageArray[position]));
+
             subject.setText(subjectArray[position]);
-            percentage.setText(percentageArray[position]);
+            percentage.setText(String.format("%s %%", percentageArray[position]));
 
             return convertView;
         }

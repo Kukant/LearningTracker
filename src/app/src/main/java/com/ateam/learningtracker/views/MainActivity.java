@@ -52,6 +52,13 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
+        btnProgressOverview.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(MainActivity.this, ProgressOverviewActivity.class));
+            }
+        });
+
         // DB access example
 
         SubjectEntity subject = new SubjectEntity("Maths", 30);
