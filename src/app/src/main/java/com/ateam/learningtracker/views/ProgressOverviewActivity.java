@@ -12,6 +12,12 @@ import android.widget.ProgressBar;
 import android.widget.TextView;
 
 import com.ateam.learningtracker.R;
+import com.ateam.learningtracker.data.DataConnector;
+import com.ateam.learningtracker.data.SubjectProgress;
+
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Locale;
 
 public class ProgressOverviewActivity extends AppCompatActivity {
 
@@ -32,11 +38,18 @@ public class ProgressOverviewActivity extends AppCompatActivity {
     }
 
     private void setupListView() {
+        List<SubjectProgress> progressInfo = DataConnector.getSubjectsProgressInfo();
 
-        String[] subject = getResources().getStringArray(R.array.Subjects);
-        String[] percentage = getResources().getStringArray(R.array.Percentage);
+        ArrayList<String> subjects = new ArrayList<>();
+        ArrayList<String> percentage = new ArrayList<>();
 
-        SimpleAdapter simpleAdapter = new SimpleAdapter(this, subject, percentage);
+        for (SubjectProgress sp: progressInfo) {
+            subjects.add(sp.name);
+            percentage.add(String.format(Locale.ENGLISH,"%d", (int) (sp.overallProgress * 100)));
+        }
+
+
+        SimpleAdapter simpleAdapter = new SimpleAdapter(this, subjects, percentage);
         listView.setAdapter(simpleAdapter);
     }
 
@@ -45,10 +58,10 @@ public class ProgressOverviewActivity extends AppCompatActivity {
         private Context mContext;
         private LayoutInflater layoutInflater;
         private TextView subject,percentage;
-        private String[] subjectArray;
-        private  String[] percentageArray;
+        private ArrayList<String>  subjectArray;
+        private ArrayList<String>  percentageArray;
 
-        public SimpleAdapter(Context context, String[] subject, String[] percentage) {
+        public SimpleAdapter(Context context, ArrayList<String> subject, ArrayList<String> percentage) {
             mContext = context;
             subjectArray = subject;
             percentageArray = percentage;
@@ -57,12 +70,12 @@ public class ProgressOverviewActivity extends AppCompatActivity {
 
         @Override
         public int getCount() {
-            return subjectArray.length;
+            return subjectArray.size();
         }
 
         @Override
         public Object getItem(int position) {
-            return subjectArray[position];
+            return subjectArray.get(position);
         }
 
         @Override
@@ -81,10 +94,10 @@ public class ProgressOverviewActivity extends AppCompatActivity {
             percentage = (TextView)convertView.findViewById(R.id.tvPercentage);
 
             ProgressBar pb = convertView.findViewById(R.id.progressBar);
-            pb.setProgress(Integer.valueOf(percentageArray[position]));
+            pb.setProgress(Integer.valueOf(percentageArray.get(position)));
 
-            subject.setText(subjectArray[position]);
-            percentage.setText(String.format("%s %%", percentageArray[position]));
+            subject.setText(subjectArray.get(position));
+            percentage.setText(String.format("%s %%", percentageArray.get(position)));
 
             return convertView;
         }

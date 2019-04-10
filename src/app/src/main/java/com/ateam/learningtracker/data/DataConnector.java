@@ -33,7 +33,7 @@ public class DataConnector {
             SubjectEntity.deleteAll(SubjectEntity.class);
         }
 
-        String[] subjects = new String[]{"Maths", "Physics", "English"};
+        String[] subjects = new String[]{"Maths", "Physics", "English", "French", "Business", "Irish"};
 
         for (String subject: subjects) {
             SubjectEntity subjectEntity = new SubjectEntity(subject, (int) (Math.random() * 100) );
