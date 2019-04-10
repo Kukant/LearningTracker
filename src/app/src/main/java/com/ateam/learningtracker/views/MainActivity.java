@@ -15,9 +15,13 @@ import android.widget.Button;
 import com.ateam.learningtracker.R;
 import com.ateam.learningtracker.data.LearningSessionEntity;
 import com.ateam.learningtracker.data.SubjectEntity;
+import com.ateam.learningtracker.data.SubjectProgress;
 import com.ateam.learningtracker.data.SubsectionEntity;
 
 import java.security.Timestamp;
+import java.util.List;
+
+import com.ateam.learningtracker.data.DataConnector;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -52,22 +56,10 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-        // DB access example
+        DataConnector.initDbData();
 
-        SubjectEntity subject = new SubjectEntity("Maths", 30);
-        subject.save();
+        List<SubjectProgress> bla = DataConnector.getSubjectsProgressInfo();
 
-        SubsectionEntity subsection = new SubsectionEntity("logarithms", 0.7f, subject);
-        subsection.save();
-
-        long timestamp = System.currentTimeMillis() / 1000;
-        LearningSessionEntity session = new LearningSessionEntity(timestamp - 3600, timestamp, "nope,", subsection);
-        session.save();
-
-
-        LearningSessionEntity s = LearningSessionEntity.findById(LearningSessionEntity.class, 1L);
-        Log.v("bla", s.note);
-        // DB access example end
     }
 
 }
