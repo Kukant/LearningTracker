@@ -56,6 +56,13 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
+        btnProgressOverview.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(MainActivity.this, ProgressOverviewActivity.class));
+            }
+        });
+
         DataConnector.initDbData();
 
         List<SubjectProgress> bla = DataConnector.getSubjectsProgressInfo();

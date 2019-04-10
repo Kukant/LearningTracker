@@ -1,0 +1,56 @@
+<android.support.v7.widget.CardView android:layout_height="wrap_content"
+    android:layout_width="match_parent"
+    android:elevation="6dp"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <RelativeLayout
+        android:layout_height="wrap_content"
+        android:layout_width="wrap_content"
+        android:background="@color/whiteGrey">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/tvMain"
+            android:layout_marginTop="6dp"
+            android:paddingLeft="10dp"
+            android:textColor="@color/black"
+            android:textStyle="bold"
+            android:textSize="24sp"/>
+
+        <ProgressBar
+            android:id="@+id/progressBar"
+            style="?android:attr/progressBarStyleHorizontal"
+            android:progressDrawable="@drawable/progressbar_style"
+            android:layout_width="match_parent"
+            android:layout_below="@+id/tvMain"
+            android:layout_height="wrap_content"
+            android:paddingLeft="10dp"
+            android:max="100"
+            android:progress="0"
+            android:paddingRight="10dp"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/tvPercentage"
+            android:textColor="@color/black"
+            android:layout_marginStart="10dp"
+            android:layout_below="@+id/progressBar"
+            android:textSize="16sp"
+            />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/tvClick"
+            android:text="Click For More Info"
+            android:layout_alignParentEnd="true"
+            android:textSize="12sp"
+            android:layout_below="@+id/tvPercentage"
+            android:textColor="@color/black"
+            android:layout_alignEnd="@+id/tvPercentage"
+            android:paddingBottom="2dp"
+            android:paddingRight="10dp"/>
+    </RelativeLayout>
+</android.support.v7.widget.CardView>
