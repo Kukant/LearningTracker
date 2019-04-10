@@ -62,8 +62,35 @@ public class DataConnector {
     }
 
     private static float getSubjectProgress(SubjectEntity subject) {
-        // TODO
-        return 0f;
+
+        List<SubsectionEntity> allSubjectSubs = SubsectionEntity.find(SubsectionEntity.class, "subject = ?", subject.getId().toString());
+        float progress = 0;
+        float importancySum = 0;
+        for (SubsectionEntity sub:allSubjectSubs) {
+            importancySum += sub.importancy;
+        }
+
+        for (SubsectionEntity sub:allSubjectSubs) {
+            progress += DataConnector.getSubsectionProgress(sub, subject, importancySum);
+        }
+        progress /= 4;
+
+        return progress;
+    }
+
+    private static float getSubsectionProgress(SubsectionEntity subsection, SubjectEntity subject, float importancySum) {
+        List<LearningSessionEntity> allSessions = LearningSessionEntity.find(LearningSessionEntity.class, "subsection = ?", subsection.getId().toString());
+        float secondsSum = 0;
+        for(LearningSessionEntity session: allSessions) {
+            secondsSum += session.timeEnd - session.timeStart;
+        }
+
+        float hours = secondsSum / 3600;
+
+        float timeForImportancy = subject.studyTime / importancySum;
+
+        return hours / (subsection.importancy * timeForImportancy);
+
     }
 
 
