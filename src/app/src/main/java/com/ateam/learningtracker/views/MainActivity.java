@@ -63,9 +63,14 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-        DataConnector.initDbData();
+        btnNewSession.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(MainActivity.this, AddLearningSessionActivity.class));
+            }
+        });
 
-        List<SubjectProgress> bla = DataConnector.getSubjectsProgressInfo();
+        DataConnector.initDbData();
 
     }
 

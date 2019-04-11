@@ -51,14 +51,17 @@ public class DataConnector {
                     session.save();
                 }
             }
-
         }
+    }
 
-        List<LearningSessionEntity> allSessions = LearningSessionEntity.listAll(LearningSessionEntity.class);
-        for (LearningSessionEntity s:allSessions) {
-            Log.v("DATA CONNECTOR", s.note);
-        }
+    public static SubjectEntity getSubjectByName(String name) {
+        List<SubjectEntity> subjects = SubsectionEntity.find(SubjectEntity.class, "name = ?", name);
+        return subjects.size() > 0 ? subjects.get(0) : null;
+    }
 
+    public static SubsectionEntity getSubsectionByName(String name, SubjectEntity subject) {
+        List<SubsectionEntity> subs = SubsectionEntity.find(SubsectionEntity.class, "name = ? and subject = ?", name, subject.getId().toString());
+        return subs.size() > 0 ? subs.get(0) : null;
     }
 
     private static float getSubjectProgress(SubjectEntity subject) {
