@@ -2,7 +2,7 @@ package com.ateam.learningtracker.data;
 
 import com.orm.SugarRecord;
 
-public class LearningSessionEntity extends SugarRecord<LearningSessionEntity> {
+public class LearningSessionEntity extends SugarRecord {
     public long timeStart;
     public long timeEnd;
     public String note;

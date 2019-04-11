@@ -2,7 +2,7 @@ package com.ateam.learningtracker.data;
 
 import com.orm.SugarRecord;
 
-public class SubsectionEntity extends SugarRecord<SubsectionEntity> {
+public class SubsectionEntity extends SugarRecord {
     public String name;
     public float importancy;
     public SubjectEntity subject;
