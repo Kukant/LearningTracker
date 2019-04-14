@@ -1,5 +1,8 @@
 package com.ateam.learningtracker.views;
 
+import android.app.job.JobInfo;
+import android.app.job.JobScheduler;
+import android.content.ComponentName;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
@@ -14,6 +17,7 @@ import android.widget.Button;
 
 import com.ateam.learningtracker.R;
 import com.ateam.learningtracker.data.LearningSessionEntity;
+import com.ateam.learningtracker.data.NotifierJob;
 import com.ateam.learningtracker.data.SubjectEntity;
 import com.ateam.learningtracker.data.SubjectProgress;
 import com.ateam.learningtracker.data.SubsectionEntity;
@@ -24,6 +28,8 @@ import java.util.List;
 import com.ateam.learningtracker.data.DataConnector;
 
 public class MainActivity extends AppCompatActivity {
+
+    private static final String TAG = "Main Page";
 
     Button btnAddSubject;
     Button btnEditSubject;
@@ -72,6 +78,28 @@ public class MainActivity extends AppCompatActivity {
 
         DataConnector.initDbData();
 
+
+
+        ComponentName componentName = new ComponentName(this, NotifierJob.class);
+        JobInfo info = new JobInfo.Builder(111, componentName)
+                .setPeriodic(30 * 60 * 1000)
+                .setPersisted(true)
+                .build();
+
+
+        JobScheduler scheduler = (JobScheduler) getSystemService(JOB_SCHEDULER_SERVICE);
+        int resultCode = scheduler.schedule(info);
+        if (resultCode == JobScheduler.RESULT_SUCCESS) {
+            Log.d(TAG, "Notify Scheduled ");
+        } else {
+            Log.d(TAG, "Notify Failed");
+        }
+
+
+
+
     }
+
+
 
 }

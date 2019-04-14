@@ -2,6 +2,7 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.ateam.learningtracker">
 
+    <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
     <application
         android:name="com.orm.SugarApp"
         android:allowBackup="true"
@@ -37,6 +38,10 @@
         <meta-data
             android:name="DOMAIN_PACKAGE_NAME"
             android:value="com.ateam" />
+
+        <service
+            android:name=".data.NotifierJob"
+            android:permission="android.permission.BIND_JOB_SERVICE" />
     </application>
 
 </manifest>
