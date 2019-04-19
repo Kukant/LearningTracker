@@ -5,4 +5,8 @@
     <string name="pause">Pause</string>
     <string name="reset">Reset</string>
     <string name="finish">Log Activity</string>
+    <string name="subject">Subject:</string>
+    <string name="subSection">Subsection:</string>
+    <string name="timStart">Time start:</string>
+    <string name="timeEnd">Time end:</string>
 </resources>

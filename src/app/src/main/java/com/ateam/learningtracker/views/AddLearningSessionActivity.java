@@ -29,6 +29,7 @@ public class AddLearningSessionActivity extends AppCompatActivity {
     Spinner spinnerSubsection;
     TimePicker timePickerStart;
     TimePicker timePickerEnd;
+    Integer secondsElapsed;
 
     AdapterView.OnItemSelectedListener subjectSelectListener = new AdapterView.OnItemSelectedListener() {
         @Override
@@ -47,6 +48,9 @@ public class AddLearningSessionActivity extends AppCompatActivity {
         setContentView(R.layout.activity_add_learning_session);
 
         addLearningSessionActivity = this;
+
+        //Receives value from TimerActivity if there is one, else behaves as normal
+        secondsElapsed = getIntent().getIntExtra("secondsElapsed", 0);
 
         // prepare the subject spinner
         List<SubjectEntity> allSubjects = SubjectEntity.listAll(SubjectEntity.class);
@@ -74,6 +78,55 @@ public class AddLearningSessionActivity extends AppCompatActivity {
         spinnerSubsection = findViewById(R.id.SpinnerSubsection);
         timePickerStart = findViewById(R.id.timePickerStart);
         timePickerEnd = findViewById(R.id.timePickerEnd);
+
+        //ignores function if user didn't come from TimerActivity
+        if(secondsElapsed != 0) {
+            setTimePickerValues(secondsElapsed);
+        }
+
+
+    }
+
+    //parses the seconds from TimerActivity and inserts it into the time pickers
+    private void setTimePickerValues(Integer secondsElapsed) {
+
+        int hours;
+        int minutes;
+        int remainingSeconds;
+
+        int secondsInHour = 3600;
+        int secondsInMinute = 60;
+
+        hours = (secondsElapsed/secondsInHour);
+
+        remainingSeconds = secondsElapsed - (hours * secondsInHour);
+        minutes = remainingSeconds/secondsInMinute;
+
+        Toast.makeText(AddLearningSessionActivity.this, "Total Study Time: " + hours + " hours and " + minutes + " minutes",
+               Toast.LENGTH_LONG).show();
+
+        int currentHour = timePickerStart.getCurrentHour();
+        int currentMinute = timePickerStart.getCurrentMinute();
+        int totalHours;
+        int totalMinutes;
+
+        totalMinutes = currentMinute - minutes;
+
+        if(totalMinutes < 0) {
+            totalMinutes = 60 + totalMinutes;
+
+            totalHours = (currentHour - hours) - 1;
+        }
+        else {
+            totalHours = currentHour - hours;
+        }
+
+        if(totalHours < 0) {
+            totalHours = 24 - totalHours;
+        }
+
+        timePickerStart.setCurrentHour(totalHours);
+        timePickerStart.setCurrentMinute(totalMinutes);
     }
 
     private void saveSession() {

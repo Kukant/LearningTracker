@@ -1,5 +1,6 @@
 package com.ateam.learningtracker.views;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.os.SystemClock;
 import android.support.v7.app.AppCompatActivity;
@@ -58,8 +59,7 @@ public class TimerActivity extends AppCompatActivity {
     }
 
     public void logActivity(View v) {
-        //Prints seconds variable which can be used in another activity when it is created
-        Toast.makeText(TimerActivity.this, "Seconds " + seconds,
-                Toast.LENGTH_LONG).show();
+
+        startActivity(new Intent(TimerActivity.this, AddLearningSessionActivity.class).putExtra("secondsElapsed", seconds));
     }
 }
