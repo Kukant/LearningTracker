@@ -17,12 +17,15 @@ public class TimerActivity extends AppCompatActivity {
     private long pauseOffset;
     private boolean running;
     private int seconds;
+    private Button saveButton;
 
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.timer_main);
+
+        saveButton = findViewById(R.id.logAcivityButton);
 
         chronometer = findViewById(R.id.chronometer);
         chronometer.setBase(SystemClock.elapsedRealtime());
@@ -59,7 +62,10 @@ public class TimerActivity extends AppCompatActivity {
     }
 
     public void logActivity(View v) {
-
+        //prevents multiple AddLearningSessionActivity sessions being started from the TimerActivity
+        saveButton.setEnabled(false);
+        saveButton.setClickable(false);
         startActivity(new Intent(TimerActivity.this, AddLearningSessionActivity.class).putExtra("secondsElapsed", seconds));
+        finish();
     }
 }

@@ -70,6 +70,9 @@ public class AddLearningSessionActivity extends AppCompatActivity {
         submitButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                //prevents multiple instances of the same session being saved to the db
+                submitButton.setEnabled(false);
+                submitButton.setClickable(false);
                 addLearningSessionActivity.saveSession();
                 finish();
             }
