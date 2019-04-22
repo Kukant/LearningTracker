@@ -1,11 +1,13 @@
 package com.ateam.learningtracker.views;
 
 import android.content.Context;
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
 import android.widget.BaseAdapter;
 import android.widget.ListView;
 import android.widget.ProgressBar;
@@ -16,6 +18,7 @@ import com.ateam.learningtracker.data.DataConnector;
 import com.ateam.learningtracker.data.SubjectProgress;
 
 import java.util.ArrayList;
+import java.util.Currency;
 import java.util.List;
 import java.util.Locale;
 
@@ -33,7 +36,7 @@ public class ProgressOverviewActivity extends AppCompatActivity {
     }
 
     private void setupUIViews() {
-        listView = (ListView) findViewById(R.id.lvMain);
+        listView = findViewById(R.id.lvMain);
         assert listView != null;
     }
 
@@ -51,6 +54,7 @@ public class ProgressOverviewActivity extends AppCompatActivity {
 
         SimpleAdapter simpleAdapter = new SimpleAdapter(this, subjects, percentage);
         listView.setAdapter(simpleAdapter);
+
     }
 
     public class SimpleAdapter extends BaseAdapter{
@@ -90,8 +94,8 @@ public class ProgressOverviewActivity extends AppCompatActivity {
             }
 
             //hard codes the subjects and percentages into the cardview from the string arrays in string.xml
-            subject = (TextView)convertView.findViewById(R.id.tvMain);
-            percentage = (TextView)convertView.findViewById(R.id.tvPercentage);
+            subject = convertView.findViewById(R.id.tvMain);
+            percentage = convertView.findViewById(R.id.tvPercentage);
 
             ProgressBar pb = convertView.findViewById(R.id.progressBar);
             pb.setProgress(Integer.valueOf(percentageArray.get(position)));
@@ -101,6 +105,8 @@ public class ProgressOverviewActivity extends AppCompatActivity {
 
             return convertView;
         }
+
+
     }
 
 }

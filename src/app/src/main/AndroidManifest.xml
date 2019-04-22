@@ -3,6 +3,7 @@
     package="com.ateam.learningtracker">
 
     <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
+
     <application
         android:name="com.orm.SugarApp"
         android:allowBackup="true"
@@ -10,14 +11,15 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".views.AddLearningSessionActivity"
-            android:screenOrientation="portrait">
-        </activity>
+        <activity android:name=".views.SubjectOverviewActivity"></activity>
+        <activity
+            android:name=".views.AddLearningSessionActivity"
+            android:screenOrientation="portrait"></activity>
         <activity
             android:name=".views.MainActivity"
             android:label="@string/app_name"
-            android:theme="@style/AppTheme.NoActionBar"
-            android:screenOrientation="portrait">
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme.NoActionBar">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -27,7 +29,8 @@
         <activity
             android:name=".views.TimerActivity"
             android:screenOrientation="portrait" />
-        <activity android:name=".views.ProgressOverviewActivity"
+        <activity
+            android:name=".views.ProgressOverviewActivity"
             android:screenOrientation="portrait" />
 
         <meta-data
