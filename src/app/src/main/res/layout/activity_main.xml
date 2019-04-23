@@ -15,6 +15,8 @@
         android:layout_height="wrap_content"
         android:layout_gravity="top"
         android:layout_marginTop="100dp"
+        android:layout_marginRight="20dp"
+        android:layout_marginLeft="20dp"
         android:src="@drawable/logo" />
 
     <Button
@@ -54,6 +56,16 @@
         android:layout_gravity="center"
         android:layout_marginTop="10dp"
         android:text="Add Subject"
+        android:background="@drawable/button_style"
+        android:textSize="20sp" />
+
+    <Button
+        android:id="@+id/BtnCreateSubject"
+        android:layout_width="300dp"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginTop="10dp"
+        android:text="Create Subject"
         android:background="@drawable/button_style"
         android:textSize="20sp" />
 

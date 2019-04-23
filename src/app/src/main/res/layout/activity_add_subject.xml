@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".views.AddSubjectActivity"
+    android:gravity="center|bottom">
+
+    <TextView
+        android:id="@+id/textViewAddSubject"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textSize="20dp"
+        android:textColor="@color/black"
+        android:textAlignment="center"
+        android:layout_marginTop="10dp"
+        android:layout_marginBottom="10dp"
+        android:text="Select subjects to track their progress:" />
+
+    <ListView
+        android:id="@+id/listViewSelectSubjects"
+        android:layout_width="match_parent"
+        android:layout_height="500dp"
+        android:layout_marginBottom="20dp" />
+
+    <Button
+        android:id="@+id/BtnAddSubjects"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="20dp"
+        android:text="Add subject(s)" />
+</LinearLayout>

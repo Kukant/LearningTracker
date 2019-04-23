@@ -32,6 +32,7 @@ public class MainActivity extends AppCompatActivity {
     private static final String TAG = "Main Page";
 
     Button btnAddSubject;
+    Button btnCreateSubject;
     Button btnEditSubject;
     Button btnProgressOverview;
     Button btnTimer;
@@ -44,6 +45,7 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         btnAddSubject = findViewById(R.id.BtnAddSubject);
+        btnCreateSubject = findViewById(R.id.BtnCreateSubject);
         btnEditSubject = findViewById(R.id.BtnEditSubject);
         btnProgressOverview = findViewById(R.id.BtnProgressOverview);
         btnTimer = findViewById(R.id.BtnTimer);
@@ -54,6 +56,7 @@ public class MainActivity extends AppCompatActivity {
         assert btnProgressOverview != null;
         assert btnTimer != null;
         assert btnNewSession != null;
+        assert btnCreateSubject != null;
 
         btnTimer.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -73,6 +76,13 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 startActivity(new Intent(MainActivity.this, AddLearningSessionActivity.class));
+            }
+        });
+
+        btnAddSubject.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(MainActivity.this, AddSubjectActivity.class));
             }
         });
 

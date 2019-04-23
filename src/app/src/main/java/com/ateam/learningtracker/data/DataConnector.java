@@ -9,7 +9,7 @@ import java.util.List;
 
 public class DataConnector {
     public static List<SubjectProgress> getSubjectsProgressInfo() {
-        List<SubjectEntity> allSubjects = SubjectEntity.listAll(SubjectEntity.class);
+        List<SubjectEntity> allSubjects = SubjectEntity.find(SubjectEntity.class, "active = ?", "1");
         List<SubjectProgress> subjectProgresses = new ArrayList<>();
 
         for (SubjectEntity subject:allSubjects) {
@@ -36,7 +36,7 @@ public class DataConnector {
         String[] subjects = new String[]{"Maths", "Physics", "English", "French", "Business", "Irish"};
 
         for (String subject: subjects) {
-            SubjectEntity subjectEntity = new SubjectEntity(subject, (int) (Math.random() * 100) );
+            SubjectEntity subjectEntity = new SubjectEntity(subject, (int) (Math.random() * 100), Math.random() > 0.5 );
             subjectEntity.save();
 
             for (int i = 0; i < 4; i++) {

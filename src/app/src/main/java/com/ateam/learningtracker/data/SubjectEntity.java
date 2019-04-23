@@ -7,6 +7,7 @@ public class SubjectEntity extends SugarRecord {
     @Unique
     public String name;
     public int studyTime;
+    public boolean active;
 
     public SubjectEntity(){
     }
@@ -14,5 +15,12 @@ public class SubjectEntity extends SugarRecord {
     public SubjectEntity(String name, int studyTime){
         this.name = name;
         this.studyTime = studyTime;
+        this.active = true;
+    }
+
+    public SubjectEntity(String name, int studyTime, boolean active){
+        this.name = name;
+        this.studyTime = studyTime;
+        this.active = active;
     }
 }
