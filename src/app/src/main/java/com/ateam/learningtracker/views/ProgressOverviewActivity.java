@@ -12,6 +12,7 @@ import android.widget.BaseAdapter;
 import android.widget.ListView;
 import android.widget.ProgressBar;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.ateam.learningtracker.R;
 import com.ateam.learningtracker.data.DataConnector;
@@ -25,6 +26,7 @@ import java.util.Locale;
 public class ProgressOverviewActivity extends AppCompatActivity {
 
     private ListView listView;
+    public ArrayList<String> subjectArray;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -33,6 +35,14 @@ public class ProgressOverviewActivity extends AppCompatActivity {
 
         setupUIViews();
         setupListView();
+
+        listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                String subjectName = subjectArray.get(position);
+                startActivity(new Intent(ProgressOverviewActivity.this, SubjectOverviewActivity.class).putExtra("subjectName", subjectName));
+            }
+        });
     }
 
     private void setupUIViews() {
@@ -62,7 +72,6 @@ public class ProgressOverviewActivity extends AppCompatActivity {
         private Context mContext;
         private LayoutInflater layoutInflater;
         private TextView subject,percentage;
-        private ArrayList<String>  subjectArray;
         private ArrayList<String>  percentageArray;
 
         public SimpleAdapter(Context context, ArrayList<String> subject, ArrayList<String> percentage) {
