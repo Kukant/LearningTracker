@@ -86,6 +86,20 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
+        btnCreateSubject.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(MainActivity.this, CreateSubject.class));
+            }
+        });
+
+        btnEditSubject.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(MainActivity.this, EditSubject.class));
+            }
+        });
+
         DataConnector.initDbData();
 
 
