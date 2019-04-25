@@ -78,5 +78,4 @@ public class AddSubjectActivity extends AppCompatActivity {
             textViewAddSubject.setText("No inactive subjects.");
         }
     }
-
 }

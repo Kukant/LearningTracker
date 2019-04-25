@@ -21,20 +21,23 @@ public class SubjectOverviewActivity extends AppCompatActivity {
 
     private ListView listView;
     private TextView textView;
+    private String subjectName;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.subjectoverview);
         //calling methods
-        setupUIView();
+        subjectName = getIntent().getStringExtra("subjectName");
+
+        setupUIView(subjectName);
     }
     //connect to view
-    private void setupUIView(){
+    private void setupUIView(String subjectName){
         textView = findViewById(R.id.tvSubjectName);
         listView = findViewById(R.id.lvSubject);
+
+        textView.setText(subjectName);
         assert listView != null;
     }
-
-
 }
