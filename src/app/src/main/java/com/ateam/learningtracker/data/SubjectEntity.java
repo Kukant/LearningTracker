@@ -1,5 +1,7 @@
 package com.ateam.learningtracker.data;
 
+import android.widget.EditText;
+
 import com.orm.SugarRecord;
 import com.orm.dsl.Unique;
 
