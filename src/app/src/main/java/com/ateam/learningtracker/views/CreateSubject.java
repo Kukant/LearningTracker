@@ -17,9 +17,9 @@ public class CreateSubject extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.create_subject);
 
-        createButton = (Button)findViewById(R.id.createButton);
-        name = (EditText) findViewById(R.id.name);
-        studyTime = (EditText) findViewById(R.id.studyTime);
+        createButton = findViewById(R.id.createButton);
+        name = findViewById(R.id.name);
+        studyTime = findViewById(R.id.studyTime);
 
         createButton.setOnClickListener(new View.OnClickListener() {
             @Override

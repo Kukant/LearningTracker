@@ -16,10 +16,10 @@ public class EditSubject extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.edit_subject);
 
-        updateButton = (Button)findViewById(R.id.createButton);
-        name = (EditText) findViewById(R.id.name);
-        studyTime = (EditText) findViewById(R.id.studyTime);
-        subsection = (EditText) findViewById(R.id.subsection);
+        updateButton = findViewById(R.id.createButton);
+        name = findViewById(R.id.name);
+        studyTime = findViewById(R.id.studyTime);
+        subsection = findViewById(R.id.subsection);
 
         updateButton.setOnClickListener(new View.OnClickListener() {
             @Override
