@@ -11,10 +11,13 @@
     <string name="timeEnd">Time end:</string>
     <string name="editSubject">Select Subject To Edit:</string>
     <string name="editSubjectName">Edit Subject Name</string>
-    <string name="time">Time:</string>
+    <string name="time">Total Study Time:</string>
     <string name="editTime">Edit Time (Hours)</string>
     <string name="addSubsection">Add Subsection:</string>
     <string name="editSubjectButton">Edit Subject</string>
     <string name="subsectionTitle">Subsection Title</string>
     <string name="newSubjectName">New Subject Name</string>
+    <string name="newSubject">Add New Subject:</string>
+    <string name="addTime">Total Study Time (Hours)</string>
+    <string name="createSubject">Create Subject</string>
 </resources>

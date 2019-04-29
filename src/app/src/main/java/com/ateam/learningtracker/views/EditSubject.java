@@ -61,6 +61,9 @@ public class EditSubject extends AppCompatActivity {
         editSubjectButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                //SubjectEntity subjectEntity = new SubjectEntity(name, studyTime);
+                //subjectEntity.save();
+
                 String newSubjectName = editTextSubjectName.getText().toString();
                 if(newSubjectName.equals("") /*Not sure if it will be saved as null or empty string, test this with db*/) {
                     //save new name to db
@@ -78,7 +81,7 @@ public class EditSubject extends AppCompatActivity {
                 }
 
                 String newSubsectionName = editTextAddSubsection.getText().toString();
-                if(newSubsectionName.equals("") /*Not sure if it will be saved as null or empty string, test this with db*/) {
+                if(!newSubsectionName.equals("") /*Not sure if it will be saved as null or empty string, test this with db*/) {
                     //save new subsection to db
                 }
                 else {
