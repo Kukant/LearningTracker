@@ -81,7 +81,7 @@ public class DataConnector {
         return progress;
     }
 
-    private static float getSubsectionProgress(SubsectionEntity subsection, SubjectEntity subject, float importancySum) {
+    public static float getSubsectionProgress(SubsectionEntity subsection, SubjectEntity subject, float importancySum) {
         List<LearningSessionEntity> allSessions = LearningSessionEntity.find(LearningSessionEntity.class, "subsection = ?", subsection.getId().toString());
         float secondsSum = 0;
         for(LearningSessionEntity session: allSessions) {

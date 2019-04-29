@@ -13,7 +13,9 @@ import android.widget.TextView;
 
 import com.ateam.learningtracker.R;
 import com.ateam.learningtracker.data.DataConnector;
+import com.ateam.learningtracker.data.SubjectEntity;
 import com.ateam.learningtracker.data.SubjectProgress;
+import com.ateam.learningtracker.data.SubsectionEntity;
 import com.ateam.learningtracker.data.SubsectionProgress;
 
 import java.util.ArrayList;
@@ -51,23 +53,25 @@ public class SubjectOverviewActivity extends AppCompatActivity {
 
     private void setListView() {
 
-        //TEST ARRAYS
-        subsectionsArray.add("Oral");
-        subsectionsArray.add("Writing");
-        subsectionsArray.add("Listening");
+        // get subsections for this subject from db
 
-        subpresentageArray.add(String.format(Locale.ENGLISH, "%d", (int) (20)));
-        subpresentageArray.add(String.format(Locale.ENGLISH, "%d", (int) (30)));
-        subpresentageArray.add(String.format(Locale.ENGLISH, "%d", (int) (40)));
+        SubjectEntity subjectEntity = DataConnector.getSubjectByName(subjectName);
+        assert subjectEntity != null;
+        List<SubsectionEntity> subsections = SubsectionEntity.find(SubsectionEntity.class, "subject = ?", subjectEntity.getId().toString());
 
-       /*
-        FOR LOOP FOR FETCHING DATA
-
-        for (SubsectionProgress ssp : subprogressInfo) {
-            subsections.add(subsectionName);
-            subpresentage.add(String.format(Locale.ENGLISH, "%d", (int) (ssp.subsectionProgress * 100)));
+        float importancySum = 0;
+        for (SubsectionEntity sub:subsections) {
+            importancySum += sub.importancy;
         }
-        */
+
+        // get subsection progress for each subsection
+
+        for (SubsectionEntity subsection:subsections) {
+            float progress = DataConnector.getSubsectionProgress(subsection, subjectEntity, importancySum);
+            subsectionsArray.add(subsection.name);
+            subpresentageArray.add(String.format(Locale.ENGLISH, "%d", (int) (progress * 100)));
+        }
+
 
         SimpleAdapter simAdapter = new SimpleAdapter(this, subsectionsArray, subpresentageArray);
         listView.setAdapter(simAdapter);
