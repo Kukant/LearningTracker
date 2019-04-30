@@ -7,8 +7,8 @@
     <string name="finish">Log Activity</string>
     <string name="subject">Subject:</string>
     <string name="subSection">Subsection:</string>
-    <string name="timStart">Time start:</string>
-    <string name="timeEnd">Time end:</string>
+    <string name="timeStart">Time Start:</string>
+    <string name="timeEnd">Time End:</string>
     <string name="editSubject">Select Subject To Edit:</string>
     <string name="editSubjectName">Edit Subject Name</string>
     <string name="time">Total Study Time:</string>
@@ -20,4 +20,6 @@
     <string name="newSubject">Add New Subject:</string>
     <string name="addTime">Total Study Time (Hours)</string>
     <string name="createSubject">Create Subject</string>
+    <string name="addSubjects">Add Subjects</string>
+    <string name="subjectSelection">Select subjects to track their progress:</string>
 </resources>

@@ -15,8 +15,11 @@ public class CreateSubject extends AppCompatActivity {
     Button createNewSubjectButton;
     EditText ETSubjectName, ETStudyTime;
 
-    private void saveData(String newSubjectName, int newStudyTime) {
-        //Enter data into the db
+    private void saveToDB(String newSubjectName, int newStudyTime) {
+        SubjectEntity subjectEntity = new SubjectEntity(newSubjectName, newStudyTime);
+        subjectEntity.save();
+        Toast.makeText(CreateSubject.this,"New Subject Created!",Toast.LENGTH_LONG).show();
+        finish();
     }
 
     protected void onCreate(Bundle savedInstanceState) {
@@ -30,9 +33,6 @@ public class CreateSubject extends AppCompatActivity {
         createNewSubjectButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                //SubjectEntity subjectEntity = new SubjectEntity(name, studyTime);
-                //subjectEntity.save();
-
 
                 String newSubjectName = ETSubjectName.getText().toString();
 
@@ -42,7 +42,7 @@ public class CreateSubject extends AppCompatActivity {
                 else {
                     try{
                         int newStudyTime = Integer.parseInt(ETStudyTime.getText().toString());
-                        saveData(newSubjectName,newStudyTime);
+                        saveToDB(newSubjectName,newStudyTime);
                     }
                     catch (NumberFormatException e) {
                         Toast.makeText(CreateSubject.this,"Try Setting A Total Number of Study Hours",Toast.LENGTH_SHORT).show();

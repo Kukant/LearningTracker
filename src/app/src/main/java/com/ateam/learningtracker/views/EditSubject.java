@@ -23,6 +23,10 @@ public class EditSubject extends AppCompatActivity {
     Spinner spinnerSubject;
     String selectedSubject;
 
+    private void updateDB() {
+        //Cant figure out how to use SugarORM to update values
+    }
+
     AdapterView.OnItemSelectedListener subjectSelectListener = new AdapterView.OnItemSelectedListener() {
         @Override
         public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
