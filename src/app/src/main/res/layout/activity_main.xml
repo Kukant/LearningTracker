@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -8,74 +7,144 @@
     android:orientation="vertical"
     tools:context=".views.TimerActivity">
 
-
     <ImageView
         android:id="@+id/imageView"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_gravity="top"
-        android:layout_marginTop="100dp"
+        android:layout_marginTop="50dp"
         android:layout_marginRight="20dp"
         android:layout_marginLeft="20dp"
-        android:src="@drawable/logo" />
+        android:src="@drawable/logo"
+        tools:ignore="ContentDescription" />
 
-    <Button
-        android:id="@+id/BtnProgressOverview"
-        android:layout_width="300dp"
+    <GridLayout
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="10dp"
-        android:layout_gravity="center"
-        android:text="Progress Overview"
-        android:background="@drawable/button_style"
-        android:textSize="20sp" />
+        android:layout_below="@+id/imageView"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="30dp"
+        android:alignmentMode="alignMargins"
+        android:columnCount="2">
 
-    <Button
-        android:id="@+id/BtnTimer"
-        android:layout_width="300dp"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center"
-        android:layout_marginTop="10dp"
-        android:text="Timer"
-        android:background="@drawable/button_style"
-        android:textSize="20sp" />
+        <RelativeLayout
+            android:layout_marginEnd="50dp"
+            android:layout_marginBottom="20dp">
 
-    <Button
-        android:id="@+id/BtnNewSession"
-        android:layout_width="300dp"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center"
-        android:layout_marginTop="10dp"
-        android:background="@drawable/button_style"
-        android:text="Log learning activity"
-        android:textSize="20sp" />
+            <ImageButton
+                android:id="@+id/BtnProgressOverview"
+                android:src="@drawable/progressoverview"
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:background="@drawable/button_style"
+                android:layout_centerHorizontal="true"
+                tools:ignore="ContentDescription" />
 
-    <Button
-        android:id="@+id/BtnAddSubject"
-        android:layout_width="300dp"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center"
-        android:layout_marginTop="10dp"
-        android:text="Add Subject"
-        android:background="@drawable/button_style"
-        android:textSize="20sp" />
+            <TextView
+                android:layout_width="100dp"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/BtnProgressOverview"
+                android:gravity="center"
+                android:textSize="12sp"
+                android:text="Progress Overview" />
+        </RelativeLayout>
 
-    <Button
-        android:id="@+id/BtnCreateSubject"
-        android:layout_width="300dp"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center"
-        android:layout_marginTop="10dp"
-        android:text="Create Subject"
-        android:background="@drawable/button_style"
-        android:textSize="20sp" />
+        <RelativeLayout>
 
-    <Button
-        android:id="@+id/BtnEditSubject"
-        android:layout_width="300dp"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center"
-        android:layout_marginTop="10dp"
-        android:text="Edit Subject"
-        android:background="@drawable/button_style"
-        android:textSize="20sp" />
-</LinearLayout>
+            <ImageButton
+                android:id="@+id/BtnTimer"
+                android:src="@drawable/timer"
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:background="@drawable/button_style"
+                android:layout_centerHorizontal="true" />
+
+            <TextView
+                android:layout_width="100dp"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/BtnTimer"
+                android:gravity="center"
+                android:textAlignment="center"
+                android:text="Timer" />
+        </RelativeLayout>
+
+        <RelativeLayout android:layout_marginBottom="20dp">
+
+            <ImageButton
+                android:id="@+id/BtnNewSession"
+                android:src="@drawable/newsession"
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:background="@drawable/button_style"
+                android:layout_centerHorizontal="true"
+                />
+
+            <TextView
+                android:layout_width="100dp"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/BtnNewSession"
+                android:gravity="center"
+                android:textSize="12sp"
+                android:text="Log New Activity" />
+        </RelativeLayout>
+
+        <RelativeLayout>
+
+            <ImageButton
+                android:id="@+id/BtnAddSubject"
+                android:src="@drawable/addsubject"
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:background="@drawable/button_style"
+                android:layout_centerHorizontal="true"
+                />
+
+            <TextView
+                android:layout_width="100dp"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/BtnAddSubject"
+                android:gravity="center"
+                android:textSize="12sp"
+                android:text="Add Subject" />
+        </RelativeLayout>
+
+        <RelativeLayout>
+
+            <ImageButton
+                android:id="@+id/BtnCreateSubject"
+                android:src="@drawable/createsubject"
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:background="@drawable/button_style"
+                android:layout_centerHorizontal="true"
+                />
+
+            <TextView
+                android:layout_width="100dp"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/BtnCreateSubject"
+                android:gravity="center"
+                android:text="Create Subject"
+                android:textSize="12sp"/>
+        </RelativeLayout>
+
+        <RelativeLayout>
+
+            <ImageButton
+                android:id="@+id/BtnEditSubject"
+                android:src="@drawable/editsubject"
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:background="@drawable/button_style"
+                android:layout_centerHorizontal="true" />
+
+            <TextView
+                android:layout_width="100dp"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/BtnEditSubject"
+                android:gravity="center"
+                android:textSize="12sp"
+                android:text="Edit Subject" />
+        </RelativeLayout>
+    </GridLayout>
+</RelativeLayout>

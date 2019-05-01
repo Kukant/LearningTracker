@@ -14,6 +14,7 @@ import android.view.View;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.Button;
+import android.widget.ImageButton;
 
 import com.ateam.learningtracker.R;
 import com.ateam.learningtracker.data.LearningSessionEntity;
@@ -31,12 +32,12 @@ public class MainActivity extends AppCompatActivity {
 
     private static final String TAG = "Main Page";
 
-    Button btnAddSubject;
-    Button btnCreateSubject;
-    Button btnEditSubject;
-    Button btnProgressOverview;
-    Button btnTimer;
-    Button btnNewSession;
+    ImageButton btnAddSubject;
+    ImageButton btnCreateSubject;
+    ImageButton btnEditSubject;
+    ImageButton btnProgressOverview;
+    ImageButton btnTimer;
+    ImageButton btnNewSession;
 
 
     @Override
