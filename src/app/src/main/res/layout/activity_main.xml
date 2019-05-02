@@ -36,6 +36,8 @@
                 android:src="@drawable/progressoverview"
                 android:layout_width="100dp"
                 android:layout_height="100dp"
+                android:adjustViewBounds="true"
+                android:scaleType="centerInside"
                 android:background="@drawable/button_style"
                 android:layout_centerHorizontal="true"
                 tools:ignore="ContentDescription" />
@@ -56,6 +58,8 @@
                 android:src="@drawable/timer"
                 android:layout_width="100dp"
                 android:layout_height="100dp"
+                android:adjustViewBounds="true"
+                android:scaleType="centerInside"
                 android:background="@drawable/button_style"
                 android:layout_centerHorizontal="true" />
 
@@ -75,6 +79,8 @@
                 android:src="@drawable/newsession"
                 android:layout_width="100dp"
                 android:layout_height="100dp"
+                android:adjustViewBounds="true"
+                android:scaleType="centerInside"
                 android:background="@drawable/button_style"
                 android:layout_centerHorizontal="true"
                 />
@@ -95,6 +101,8 @@
                 android:src="@drawable/addsubject"
                 android:layout_width="100dp"
                 android:layout_height="100dp"
+                android:adjustViewBounds="true"
+                android:scaleType="centerInside"
                 android:background="@drawable/button_style"
                 android:layout_centerHorizontal="true"
                 />
@@ -115,6 +123,8 @@
                 android:src="@drawable/createsubject"
                 android:layout_width="100dp"
                 android:layout_height="100dp"
+                android:adjustViewBounds="true"
+                android:scaleType="centerInside"
                 android:background="@drawable/button_style"
                 android:layout_centerHorizontal="true"
                 />
@@ -135,6 +145,8 @@
                 android:src="@drawable/editsubject"
                 android:layout_width="100dp"
                 android:layout_height="100dp"
+                android:adjustViewBounds="true"
+                android:scaleType="centerInside"
                 android:background="@drawable/button_style"
                 android:layout_centerHorizontal="true" />
 

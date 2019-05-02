@@ -6,7 +6,7 @@
     <RelativeLayout
         android:layout_height="wrap_content"
         android:layout_width="wrap_content"
-        android:background="@color/whiteGrey">
+        android:background="@drawable/subject_cardview_style">
 
         <TextView
             android:layout_width="wrap_content"
