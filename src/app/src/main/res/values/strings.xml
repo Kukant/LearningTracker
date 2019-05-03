@@ -27,4 +27,11 @@
     <string name="createSubject">Create Subject</string>
     <string name="addSubjects">Add Subjects</string>
     <string name="subjectSelection">Select subjects to track their progress:</string>
+
+    <string-array name="TimePeriods">
+        <item>All time</item>
+        <item>Last week</item>
+        <item>Last month</item>
+        <item>Last 6 months</item>
+    </string-array>
 </resources>
