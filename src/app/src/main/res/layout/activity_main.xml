@@ -11,10 +11,11 @@
         android:id="@+id/imageView"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
         android:layout_gravity="top"
+        android:layout_marginLeft="20dp"
         android:layout_marginTop="50dp"
         android:layout_marginRight="20dp"
-        android:layout_marginLeft="20dp"
         android:src="@drawable/logo"
         tools:ignore="ContentDescription" />
 
@@ -22,8 +23,10 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@+id/imageView"
+        android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="30dp"
+        android:layout_marginBottom="10dp"
         android:alignmentMode="alignMargins"
         android:columnCount="2">
 
@@ -33,13 +36,13 @@
 
             <ImageButton
                 android:id="@+id/BtnProgressOverview"
-                android:src="@drawable/progressoverview"
                 android:layout_width="100dp"
                 android:layout_height="100dp"
-                android:adjustViewBounds="true"
-                android:scaleType="centerInside"
-                android:background="@drawable/button_style"
                 android:layout_centerHorizontal="true"
+                android:adjustViewBounds="true"
+                android:background="@drawable/button_style"
+                android:scaleType="centerInside"
+                android:src="@drawable/progressoverview"
                 tools:ignore="ContentDescription" />
 
             <TextView
@@ -47,87 +50,84 @@
                 android:layout_height="wrap_content"
                 android:layout_below="@id/BtnProgressOverview"
                 android:gravity="center"
-                android:textSize="12sp"
-                android:text="Progress Overview" />
+                android:text="Progress Overview"
+                android:textSize="12sp" />
         </RelativeLayout>
 
         <RelativeLayout>
 
             <ImageButton
                 android:id="@+id/BtnTimer"
-                android:src="@drawable/timer"
                 android:layout_width="100dp"
                 android:layout_height="100dp"
+                android:layout_centerHorizontal="true"
                 android:adjustViewBounds="true"
-                android:scaleType="centerInside"
                 android:background="@drawable/button_style"
-                android:layout_centerHorizontal="true" />
+                android:scaleType="centerInside"
+                android:src="@drawable/timer" />
 
             <TextView
                 android:layout_width="100dp"
                 android:layout_height="wrap_content"
                 android:layout_below="@id/BtnTimer"
                 android:gravity="center"
-                android:textAlignment="center"
-                android:text="Timer" />
+                android:text="Timer"
+                android:textAlignment="center" />
         </RelativeLayout>
 
         <RelativeLayout android:layout_marginBottom="20dp">
 
             <ImageButton
                 android:id="@+id/BtnNewSession"
-                android:src="@drawable/newsession"
                 android:layout_width="100dp"
                 android:layout_height="100dp"
-                android:adjustViewBounds="true"
-                android:scaleType="centerInside"
-                android:background="@drawable/button_style"
                 android:layout_centerHorizontal="true"
-                />
+                android:adjustViewBounds="true"
+                android:background="@drawable/button_style"
+                android:scaleType="centerInside"
+                android:src="@drawable/newsession" />
 
             <TextView
                 android:layout_width="100dp"
                 android:layout_height="wrap_content"
                 android:layout_below="@id/BtnNewSession"
                 android:gravity="center"
-                android:textSize="12sp"
-                android:text="Log New Activity" />
+                android:text="Log New Activity"
+                android:textSize="12sp" />
         </RelativeLayout>
 
         <RelativeLayout>
 
             <ImageButton
                 android:id="@+id/BtnAddSubject"
-                android:src="@drawable/addsubject"
                 android:layout_width="100dp"
                 android:layout_height="100dp"
-                android:adjustViewBounds="true"
-                android:scaleType="centerInside"
-                android:background="@drawable/button_style"
                 android:layout_centerHorizontal="true"
-                />
+                android:adjustViewBounds="true"
+                android:background="@drawable/button_style"
+                android:scaleType="centerInside"
+                android:src="@drawable/addsubject" />
 
             <TextView
                 android:layout_width="100dp"
                 android:layout_height="wrap_content"
                 android:layout_below="@id/BtnAddSubject"
                 android:gravity="center"
-                android:textSize="12sp"
-                android:text="Add Subject" />
+                android:text="Add Subject"
+                android:textSize="12sp" />
         </RelativeLayout>
 
         <RelativeLayout>
 
             <ImageButton
                 android:id="@+id/BtnCreateSubject"
-                android:src="@drawable/createsubject"
                 android:layout_width="100dp"
                 android:layout_height="100dp"
-                android:adjustViewBounds="true"
-                android:scaleType="centerInside"
-                android:background="@drawable/button_style"
                 android:layout_centerHorizontal="true"
-                />
+                android:adjustViewBounds="true"
+                android:background="@drawable/button_style"
+                android:scaleType="centerInside"
+                android:src="@drawable/createsubject" />
 
             <TextView
                 android:layout_width="100dp"
@@ -135,28 +135,28 @@
                 android:layout_below="@id/BtnCreateSubject"
                 android:gravity="center"
                 android:text="Create Subject"
-                android:textSize="12sp"/>
+                android:textSize="12sp" />
         </RelativeLayout>
 
         <RelativeLayout>
 
             <ImageButton
                 android:id="@+id/BtnEditSubject"
-                android:src="@drawable/editsubject"
                 android:layout_width="100dp"
                 android:layout_height="100dp"
+                android:layout_centerHorizontal="true"
                 android:adjustViewBounds="true"
-                android:scaleType="centerInside"
                 android:background="@drawable/button_style"
-                android:layout_centerHorizontal="true" />
+                android:scaleType="centerInside"
+                android:src="@drawable/editsubject" />
 
             <TextView
                 android:layout_width="100dp"
                 android:layout_height="wrap_content"
                 android:layout_below="@id/BtnEditSubject"
                 android:gravity="center"
-                android:textSize="12sp"
-                android:text="Edit Subject" />
+                android:text="Edit Subject"
+                android:textSize="12sp" />
         </RelativeLayout>
     </GridLayout>
 </RelativeLayout>
