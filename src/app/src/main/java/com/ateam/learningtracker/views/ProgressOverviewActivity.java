@@ -8,9 +8,11 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
 import android.widget.BaseAdapter;
 import android.widget.ListView;
 import android.widget.ProgressBar;
+import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -26,6 +28,7 @@ import java.util.Locale;
 public class ProgressOverviewActivity extends AppCompatActivity {
 
     private ListView listView;
+    private Spinner timeperiod;
     public ArrayList<String> subjectArray;
 
     @Override
@@ -43,6 +46,9 @@ public class ProgressOverviewActivity extends AppCompatActivity {
                 startActivity(new Intent(ProgressOverviewActivity.this, SubjectOverviewActivity.class).putExtra("subjectName", subjectName));
             }
         });
+
+
+
     }
 
     private void setupUIViews() {
@@ -64,6 +70,27 @@ public class ProgressOverviewActivity extends AppCompatActivity {
 
         SimpleAdapter simpleAdapter = new SimpleAdapter(this, subjects, percentage);
         listView.setAdapter(simpleAdapter);
+
+    }
+
+    private void setupSpinnerContent(){
+        Spinner spinner = findViewById(R.id.spinnerTimeperiod);
+        ArrayAdapter<CharSequence> spinnerArrayAdapter = ArrayAdapter.createFromResource(this, R.array.TimePeriods, android.R.layout.simple_spinner_item);
+        spinnerArrayAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        spinner.setAdapter(spinnerArrayAdapter);
+
+        spinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> parent) {
+
+            }
+        });
+
 
     }
 
@@ -117,5 +144,7 @@ public class ProgressOverviewActivity extends AppCompatActivity {
 
 
     }
+
+
 
 }
