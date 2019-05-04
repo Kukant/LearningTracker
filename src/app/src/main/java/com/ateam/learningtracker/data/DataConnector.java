@@ -3,22 +3,33 @@ package com.ateam.learningtracker.data;
 import android.util.Log;
 
 import com.orm.SugarDb;
+import com.orm.util.NamingHelper;
 
 import java.util.ArrayList;
 import java.util.List;
 
 public class DataConnector {
     public static List<SubjectProgress> getSubjectsProgressInfo() {
+        return getSubjectsProgressInfo(0);
+    }
+
+    /**
+     * Get progress info in certain time period.
+     * @param periodStartTime period start time (unix timestamp)
+     * @return
+     */
+    public static List<SubjectProgress> getSubjectsProgressInfo(long periodStartTime) {
         List<SubjectEntity> allSubjects = SubjectEntity.find(SubjectEntity.class, "active = ?", "1");
         List<SubjectProgress> subjectProgresses = new ArrayList<>();
 
         for (SubjectEntity subject:allSubjects) {
             SubjectProgress sp = new SubjectProgress();
             sp.name = subject.name;
-            sp.overallProgress = getSubjectProgress(subject);
+            sp.overallProgress = getSubjectProgress(subject, periodStartTime);
 
             subjectProgresses.add(sp);
         }
+
         return subjectProgresses;
     }
 
@@ -65,6 +76,10 @@ public class DataConnector {
     }
 
     private static float getSubjectProgress(SubjectEntity subject) {
+        return getSubjectProgress(subject, 0);
+    }
+
+    private static float getSubjectProgress(SubjectEntity subject, long periodStartTime) {
 
         List<SubsectionEntity> allSubjectSubs = SubsectionEntity.find(SubsectionEntity.class, "subject = ?", subject.getId().toString());
         float progress = 0;
@@ -74,7 +89,7 @@ public class DataConnector {
         }
 
         for (SubsectionEntity sub:allSubjectSubs) {
-            progress += DataConnector.getSubsectionProgress(sub, subject, importancySum);
+            progress += DataConnector.getSubsectionProgress(sub, subject, importancySum, periodStartTime);
         }
         progress /= 4;
 
@@ -82,7 +97,14 @@ public class DataConnector {
     }
 
     public static float getSubsectionProgress(SubsectionEntity subsection, SubjectEntity subject, float importancySum) {
-        List<LearningSessionEntity> allSessions = LearningSessionEntity.find(LearningSessionEntity.class, "subsection = ?", subsection.getId().toString());
+        return getSubsectionProgress(subsection, subject, importancySum, 0);
+
+    }
+
+    public static float getSubsectionProgress(SubsectionEntity subsection, SubjectEntity subject, float importancySum, long periodStartTime) {
+
+        List<LearningSessionEntity> allSessions = LearningSessionEntity.find(LearningSessionEntity.class,
+                "subsection = ? and time_start > ?", subsection.getId().toString(), String.valueOf(periodStartTime));
         float secondsSum = 0;
         for(LearningSessionEntity session: allSessions) {
             secondsSum += session.timeEnd - session.timeStart;
