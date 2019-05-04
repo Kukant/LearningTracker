@@ -10,12 +10,13 @@
         android:id="@+id/tvSubjectName"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="TextView"
-        tools:text="English"
         android:fontFamily="monospace"
+        android:text="TextView"
         android:textAlignment="center"
+        android:textSize="40dp"
         android:textStyle="bold"
-        android:textSize="40dp"/>
+        android:textColor="@color/black"
+        tools:text="English" />
 
     <ListView
         android:id="@+id/lvSubject"
