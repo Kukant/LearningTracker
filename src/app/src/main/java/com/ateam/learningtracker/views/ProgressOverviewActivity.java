@@ -43,6 +43,7 @@ public class ProgressOverviewActivity extends AppCompatActivity {
 
         setupUIViews();
         setupListView();
+        setupSpinnerContent();
 
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
@@ -77,8 +78,9 @@ public class ProgressOverviewActivity extends AppCompatActivity {
 
     }
 
+    //creates top of the screen spinner and its content
     private void setupSpinnerContent(){
-        Spinner spinner = findViewById(R.id.spinnerTimeperiod);
+        final Spinner spinner = findViewById(R.id.spinnerTimeperiod);
         ArrayAdapter<CharSequence> spinnerArrayAdapter = ArrayAdapter.createFromResource(this, R.array.TimePeriods, android.R.layout.simple_spinner_item);
         spinnerArrayAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         spinner.setAdapter(spinnerArrayAdapter);
@@ -86,12 +88,25 @@ public class ProgressOverviewActivity extends AppCompatActivity {
         spinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+                switch (position){
+                    case 1: // case all time
 
+                        break;
+                    case 2: //case last week
+
+                        break;
+                    case 3: //case last month
+
+                        break;
+                    case 4: //case last 6 months
+
+                        break;
+                }
             }
 
             @Override
             public void onNothingSelected(AdapterView<?> parent) {
-
+                //spinner.setSelection(1);
             }
         });
 
