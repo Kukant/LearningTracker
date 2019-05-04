@@ -2,8 +2,10 @@ package com.ateam.learningtracker.views;
 
 import android.content.Context;
 import android.content.Intent;
+import android.graphics.Color;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.widget.CardView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -12,6 +14,7 @@ import android.widget.ArrayAdapter;
 import android.widget.BaseAdapter;
 import android.widget.ListView;
 import android.widget.ProgressBar;
+import android.widget.RelativeLayout;
 import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -21,6 +24,7 @@ import com.ateam.learningtracker.data.DataConnector;
 import com.ateam.learningtracker.data.SubjectProgress;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.Currency;
 import java.util.List;
 import java.util.Locale;
@@ -30,6 +34,7 @@ public class ProgressOverviewActivity extends AppCompatActivity {
     private ListView listView;
     private Spinner timeperiod;
     public ArrayList<String> subjectArray;
+    public RelativeLayout relativeLayout;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -67,7 +72,6 @@ public class ProgressOverviewActivity extends AppCompatActivity {
             percentage.add(String.format(Locale.ENGLISH,"%d", (int) (sp.overallProgress * 100)));
         }
 
-
         SimpleAdapter simpleAdapter = new SimpleAdapter(this, subjects, percentage);
         listView.setAdapter(simpleAdapter);
 
@@ -100,6 +104,7 @@ public class ProgressOverviewActivity extends AppCompatActivity {
         private LayoutInflater layoutInflater;
         private TextView subject,percentage;
         private ArrayList<String>  percentageArray;
+        private RelativeLayout relativeLayout;
 
         public SimpleAdapter(Context context, ArrayList<String> subject, ArrayList<String> percentage) {
             mContext = context;
@@ -132,19 +137,24 @@ public class ProgressOverviewActivity extends AppCompatActivity {
             //hard codes the subjects and percentages into the cardview from the string arrays in string.xml
             subject = convertView.findViewById(R.id.tvMain);
             percentage = convertView.findViewById(R.id.tvPercentage);
+            relativeLayout = convertView.findViewById(R.id.RLprogressOverview);
 
             ProgressBar pb = convertView.findViewById(R.id.progressBar);
             pb.setProgress(Integer.valueOf(percentageArray.get(position)));
 
             subject.setText(subjectArray.get(position));
             percentage.setText(String.format("%s %%", percentageArray.get(position)));
+            if(Integer.valueOf(percentageArray.get(position)) > 66) {
+                relativeLayout.setBackgroundColor(Color.parseColor("#27C231"));
+            }
+            else if(Integer.valueOf(percentageArray.get(position)) > 33 && Integer.valueOf(percentageArray.get(position)) < 66) {
+                relativeLayout.setBackgroundColor(Color.parseColor("#FF8533"));
+            }
+            else {
+                relativeLayout.setBackgroundColor(Color.parseColor("#FD3030"));
+            }
 
             return convertView;
         }
-
-
     }
-
-
-
 }

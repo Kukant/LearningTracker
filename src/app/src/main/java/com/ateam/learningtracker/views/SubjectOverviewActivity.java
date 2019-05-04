@@ -1,6 +1,7 @@
 package com.ateam.learningtracker.views;
 
 import android.content.Context;
+import android.graphics.Color;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -9,6 +10,7 @@ import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.ListView;
 import android.widget.ProgressBar;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import com.ateam.learningtracker.R;
@@ -26,6 +28,7 @@ public class SubjectOverviewActivity extends AppCompatActivity {
     private ListView listView;
     private TextView textView;
     private String subjectName;
+    private RelativeLayout relativeLayout;
 
     ArrayList<String> subsectionsArray = new ArrayList<>();
     ArrayList<String> subpresentageArray = new ArrayList<>();
@@ -114,6 +117,7 @@ public class SubjectOverviewActivity extends AppCompatActivity {
             }
             subsection = convertView.findViewById(R.id.tvSubsectionName);
             subpercentage = convertView.findViewById(R.id.tvSubPercentage);
+            relativeLayout = convertView.findViewById(R.id.RLsubsectionOverview);
 
             ProgressBar pb = convertView.findViewById(R.id.SubProgressBar);
             pb.setProgress(Integer.valueOf(subpercentageArray.get(position)));
@@ -121,8 +125,17 @@ public class SubjectOverviewActivity extends AppCompatActivity {
             subsection.setText(subsectionsArray.get(position));
             subpercentage.setText(String.format("%s %%", subpercentageArray.get(position)));
 
-            return convertView;
+            if(Integer.valueOf(subpercentageArray.get(position)) > 66) {
+                relativeLayout.setBackgroundColor(Color.parseColor("#27C231"));
+            }
+            else if(Integer.valueOf(subpercentageArray.get(position)) > 33 && Integer.valueOf(subpercentageArray.get(position)) < 66) {
+                relativeLayout.setBackgroundColor(Color.parseColor("#FF8533"));
+            }
+            else {
+                relativeLayout.setBackgroundColor(Color.parseColor("#FD3030"));
+            }
 
+            return convertView;
         }
     }
 
