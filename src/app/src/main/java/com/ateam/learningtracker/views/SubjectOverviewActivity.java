@@ -39,7 +39,6 @@ public class SubjectOverviewActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.subjectoverview);
-        //calling methods
         subjectName = getIntent().getStringExtra("subjectName");
 
         setupUIView(subjectName);
@@ -54,10 +53,10 @@ public class SubjectOverviewActivity extends AppCompatActivity {
         assert listView != null;
     }
 
+    /**
+     * Sets up the view for subsections and fills it with data from the database.
+     */
     private void setListView() {
-
-        // get subsections for this subject from db
-
         SubjectEntity subjectEntity = DataConnector.getSubjectByName(subjectName);
         assert subjectEntity != null;
         List<SubsectionEntity> subsections = SubsectionEntity.find(SubsectionEntity.class, "subject = ?", subjectEntity.getId().toString());
@@ -66,8 +65,6 @@ public class SubjectOverviewActivity extends AppCompatActivity {
         for (SubsectionEntity sub:subsections) {
             importancySum += sub.importancy;
         }
-
-        // get subsection progress for each subsection
 
         for (SubsectionEntity subsection:subsections) {
             float progress = DataConnector.getSubsectionProgress(subsection, subjectEntity, importancySum);
@@ -80,7 +77,9 @@ public class SubjectOverviewActivity extends AppCompatActivity {
         listView.setAdapter(simAdapter);
 
     }
-
+    /**
+     * Adapter for the listview.
+     */
     public class SimpleAdapter extends BaseAdapter {
 
         private Context mContext;
