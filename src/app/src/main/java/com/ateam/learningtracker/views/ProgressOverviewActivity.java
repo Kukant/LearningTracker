@@ -6,6 +6,7 @@ import android.graphics.Color;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.CardView;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -29,10 +30,11 @@ import java.util.Currency;
 import java.util.List;
 import java.util.Locale;
 
+import static com.ateam.learningtracker.data.DataConnector.getSubjectsProgressInfo;
+
 public class ProgressOverviewActivity extends AppCompatActivity {
 
     private ListView listView;
-    private Spinner timeperiod;
     public ArrayList<String> subjectArray;
     public RelativeLayout relativeLayout;
 
@@ -63,7 +65,7 @@ public class ProgressOverviewActivity extends AppCompatActivity {
     }
 
     private void setupListView() {
-        List<SubjectProgress> progressInfo = DataConnector.getSubjectsProgressInfo();
+        List<SubjectProgress> progressInfo = getSubjectsProgressInfo();
 
         ArrayList<String> subjects = new ArrayList<>();
         ArrayList<String> percentage = new ArrayList<>();
@@ -78,8 +80,30 @@ public class ProgressOverviewActivity extends AppCompatActivity {
 
     }
 
-    //creates top of the screen spinner and its content
-    private void setupSpinnerContent(){
+    /**
+     * Updates the view after spinner is used to select different time period.
+     */
+    private void updateListView (long timeperiod) {
+        List<SubjectProgress> progressInfo = getSubjectsProgressInfo(timeperiod);
+
+        ArrayList<String> subjects = new ArrayList<>();
+        ArrayList<String> percentage = new ArrayList<>();
+
+        for (SubjectProgress sp: progressInfo) {
+            subjects.add(sp.name);
+            percentage.add(String.format(Locale.ENGLISH,"%d", (int) (sp.overallProgress * 100)));
+        }
+
+        SimpleAdapter simpleAdapter = new SimpleAdapter(this, subjects, percentage);
+        listView.setAdapter(simpleAdapter);
+
+    }
+
+    /**
+     * Creates a spinner on top of the screen with certain time periods
+     * and updates the view accordingly after each selection.
+     */
+    private void setupSpinnerContent (){
         final Spinner spinner = findViewById(R.id.spinnerTimeperiod);
         ArrayAdapter<CharSequence> spinnerArrayAdapter = ArrayAdapter.createFromResource(this, R.array.TimePeriods, android.R.layout.simple_spinner_item);
         spinnerArrayAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
@@ -88,18 +112,26 @@ public class ProgressOverviewActivity extends AppCompatActivity {
         spinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+                long timestamp = System.currentTimeMillis()/1000;
                 switch (position){
-                    case 1: // case all time
-
+                    case 0: // case all time
+                        setupListView();
+                        //Log.w("TAG", "alltime");
                         break;
-                    case 2: //case last week
 
+                    case 1: //case last week
+                        updateListView(timestamp - (60*60*24*7));
+                        //Log.w("TAG", "week");
                         break;
-                    case 3: //case last month
 
+                    case 2: //case last month
+                        updateListView(timestamp - (60*60*24*30));
+                        //Log.w("TAG", "month");
                         break;
-                    case 4: //case last 6 months
 
+                    case 3: //case last 6 months
+                        updateListView(timestamp - (60*60*24*30*6));
+                        //Log.w("TAG", "6 months");
                         break;
                 }
             }
