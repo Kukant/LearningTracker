@@ -2,7 +2,11 @@ package com.ateam.learningtracker.data;
 
 import android.app.NotificationChannel;
 import android.app.NotificationManager;
+import android.app.job.JobInfo;
+import android.app.job.JobScheduler;
+import android.content.ComponentName;
 import android.os.Build;
+import android.util.Log;
 
 import com.orm.SugarApp;
 
@@ -11,9 +15,12 @@ import java.util.Collections;
 public class Channel extends SugarApp {
     public static final String CHANNEL_1_ID = "StudyWarning";
 
+
     @Override
     public void onCreate() {
         super.onCreate();
+
+
 
         createNotificationChannels();
     }

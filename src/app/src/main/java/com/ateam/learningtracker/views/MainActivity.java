@@ -1,9 +1,12 @@
 package com.ateam.learningtracker.views;
 
+import android.app.NotificationChannel;
+import android.app.NotificationManager;
 import android.app.job.JobInfo;
 import android.app.job.JobScheduler;
 import android.content.ComponentName;
 import android.content.Intent;
+import android.os.Build;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
@@ -31,6 +34,7 @@ import com.ateam.learningtracker.data.DataConnector;
 public class MainActivity extends AppCompatActivity {
 
     private static final String TAG = "Main Page";
+
 
     ImageButton btnAddSubject;
     ImageButton btnCreateSubject;
@@ -122,9 +126,7 @@ public class MainActivity extends AppCompatActivity {
 
 
 
-
     }
-
 
 
 }
