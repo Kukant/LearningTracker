@@ -3,6 +3,7 @@ package com.ateam.learningtracker.data;
 import android.app.Notification;
 import android.app.job.JobParameters;
 import android.app.job.JobService;
+import android.graphics.Color;
 import android.support.v4.app.NotificationCompat;
 import android.support.v4.app.NotificationManagerCompat;
 import android.util.Log;
@@ -34,15 +35,16 @@ public class NotifierJob extends JobService {
         Integer minPercentage = findMinPercent(percentage);
         System.out.println("min is =" +minPercentage);
 
-        if (i == 0) {
+        if (i != 0) {
             if (minPercentage < 65) {
             notificationManager = NotificationManagerCompat.from(this);
 
             Notification notification = new NotificationCompat.Builder(this, Channel.CHANNEL_1_ID)
                     .setContentTitle("study")
                     .setSmallIcon(R.drawable.ic_study_warning)
-                    .setContentText("You have subjects you need to study")
+                    .setContentText("You have subjects you need to study!")
                     .setPriority(NotificationCompat.PRIORITY_HIGH)
+                    .setColor(Color.RED)
                     .build();
 
             notificationManager.notify(1, notification);
