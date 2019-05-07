@@ -57,7 +57,7 @@ public class DataConnector {
                 int numberOfSessions = (int) (Math.random() * 5);
 
                 for (int j = 0; j < numberOfSessions; j++) {
-                    long timestamp = System.currentTimeMillis() / 1000;
+                    long timestamp = System.currentTimeMillis() / 1000 - (long)(Math.random() * 3600 * 24 * 30);
                     LearningSessionEntity session = new LearningSessionEntity(timestamp - (int)(Math.random() * 3600 * 5), timestamp, "nope," + j, subsection);
                     session.save();
                 }
