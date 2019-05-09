@@ -35,7 +35,7 @@ public class NotifierJob extends JobService {
         Integer minPercentage = findMinPercent(percentage);
         System.out.println("min is =" +minPercentage);
 
-        if (i != 0) {
+        if (i == 0) {
             if (minPercentage < 65) {
             notificationManager = NotificationManagerCompat.from(this);
 
@@ -50,7 +50,7 @@ public class NotifierJob extends JobService {
             notificationManager.notify(1, notification);
                 }
             }
-            i++;
+            //i++;
             doNotify(params);
             return true;
 
