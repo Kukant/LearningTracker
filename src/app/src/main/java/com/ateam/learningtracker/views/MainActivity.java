@@ -111,7 +111,7 @@ public class MainActivity extends AppCompatActivity {
 
         ComponentName componentName = new ComponentName(this, NotifierJob.class);
         JobInfo info = new JobInfo.Builder(111, componentName)
-                .setPeriodic(60 * 60 * 1000)
+                .setPeriodic(30 * 60 * 1000)
                 .setPersisted(true)
                 .build();
 
